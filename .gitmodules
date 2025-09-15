@@ -1,0 +1,3 @@
+[submodule "MyBot/dependencies/include/piper"]
+	path = MyBot/dependencies/include/piper
+	url = https://github.com/rhasspy/piper.git
