@@ -171,13 +171,15 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <AdditionalOptions>/wd4251 /utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>D:\projects\coding_for_fun\dependices\piper-phonemize-master\out\build\x64-Debug\ei\include;D:\projects\coding_for_fun\dependices\piper-phonemize-master\src;D:\projects\coding_for_fun\dependices\piper-master\src\cpp;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\si\include;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\pi\include;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\fi\include;D:\projects\coding_for_fun\vcpkg\installed\x64-windows\include;D:\projects\coding_for_fun\dependices\piper-phonemize-master;D:\projects\coding_for_fun\dependices\piper-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;dpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>piper_lib.lib;fmt.lib;piper_phonemize.lib;espeak-ng.lib;onnxruntime.lib;spdlog.lib;mpg123.lib;ws2_32.lib;dpp.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\projects\coding_for_fun\dependices\piper-phonemize-master\out\build\x64-Debug\ei\lib;D:\projects\coding_for_fun\dependices\piper-phonemize-master\out\build\x64-Debug;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\si\lib;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\pi\lib;D:\projects\coding_for_fun\dependices\piper-master\out\build\x64-Release1\fi\lib;D:\projects\coding_for_fun\dependices\piper-master\out\install\x64-Release1\lib;D:\projects\coding_for_fun\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy /y "$(ProjectDir)dependencies\64\release\bin\*.dll" "$(OutDir)"</Command>
@@ -187,9 +189,15 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="decodeaudio.cpp" />
+    <ClCompile Include="joinleave.cpp" />
+    <ClCompile Include="libpiper.cpp" />
     <ClCompile Include="MyBot.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Connection.h" />
+    <ClInclude Include="decodeaudio.h" />
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\appcommand.h" />
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\application.h" />
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\auditlog.h" />
@@ -282,7 +290,16 @@
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\win32_safe_warnings.h" />
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\wsclient.h" />
     <ClInclude Include="dependencies\include\dpp-10.1\dpp\zlibcontext.h" />
+    <ClInclude Include="joinleave.h" />
+    <ClInclude Include="libpiper.h" />
     <ClInclude Include="MyBot.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="D:\projects\coding_for_fun\bottom\.env" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\sounds\pain_peko.wav" />
+    <Media Include="..\sounds\pain_peko_full.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
